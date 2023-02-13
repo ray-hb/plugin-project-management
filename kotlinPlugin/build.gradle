@@ -1,0 +1,60 @@
+apply plugin: 'groovy'
+apply plugin: 'maven-publish'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi() //必须
+    implementation localGroovy() //必须
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDir "src/main/groory"
+        }
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+tasks.withType(Copy).all { duplicatesStrategy 'exclude' }
+
+publishing {
+    publications {
+        paidDebug(MavenPublication) {
+            groupId "com.ray.settings"
+            artifactId "easysettings"
+            version "2.0.4"
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url uri('/users/pengrui/CODE/Maven/self-maven')
+            //url("/users/pengrui/CODE/MavenLocal")
+        }
+    }
+
+//    repositories {
+//        maven { MavenArtifactRepository repository ->
+//            repository.allowInsecureProtocol(true)
+//            repository.url("http://192.168.20.47:8081/repository/leke-releases/")
+//            repository.credentials {
+//                username("leke")
+//                password("leke123")
+//            }
+//        }
+//    }
+}

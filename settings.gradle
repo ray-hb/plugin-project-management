@@ -1,0 +1,68 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }.setAllowInsecureProtocol(true)
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }.setAllowInsecureProtocol(true)
+    }
+}
+
+buildscript {
+    def useRemote = true
+    repositories {
+        maven {
+            url("https://gitee.com/android-ray/self-maven/raw/master")
+        }.allowInsecureProtocol(true)
+    }
+    dependencies {
+        //classpath 'com.ray.settings:easysettings:2.0.2-SNAPSHOT'
+        classpath 'com.ray.settings:easysettings:2.0.4'
+    }
+}
+
+apply {
+    plugin 'com.ray.easysettings'
+}
+
+
+dependencyResolutionManagement {
+    //repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.google.com' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }.setAllowInsecureProtocol(true)
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }.setAllowInsecureProtocol(true)
+        google()
+        mavenCentral()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }.setAllowInsecureProtocol(true)
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }.setAllowInsecureProtocol(true)
+        maven {
+            url "https://raw.githubusercontent.com/androidnewPlayer/maven_repository/main"
+            //url("/users/pengrui/CODE/MavenLocal")
+            //url("/users/pengrui/CODE/TemMaven/maven_repository")
+        }
+
+        maven {
+            //url "https://raw.githubusercontent.com/androidnewPlayer/maven_repository/main"
+            //url("/users/pengrui/CODE/MavenLocal")
+            url("/users/pengrui/CODE/TemMaven/maven_repository")
+        }
+    }
+}
+
+rootProject.name = "GroovyExercise"
+
+//include(':app')
+//include('commonres')
+//project(':commonres').projectDir = file("./utils/commonres")
+//include('commonUtils')
+//project(':commonUtils').projectDir = file("./utils/commonUtils")
+def useRemote = true
+if (!useRemote) {
+
+}
+include(':kotlinPlugin')
+//include ':upload'
