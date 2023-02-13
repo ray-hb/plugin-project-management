@@ -71,13 +71,14 @@ classpath 'com.ray.settings:easysettings:2.0.4'
 </repository>
 
 ```
-该配置文件位于根目录
-repositorys_config下面配置maven的认证信息，target是选择哪个环境的maven仓库
-projects_config 下面配置项目maven上传需要的信息，name需要与项目名称保持一致，use_source：1.表示是采用本地编译项目 2.表示采用maven仓库进行远程集成
+* 该配置文件位于根目录
+* repositorys_config下面配置maven的认证信息，target是选择哪个环境的maven仓库
+* projects_config 下面配置项目maven上传需要的信息，name需要与项目名称保持一致
+* use_source：1.表示是采用本地编译项目 2.表示采用maven仓库进行远程集成
 
-功能：
-1.无须在setting文件中声明project，会自动寻找
-2.子项目可以在任意目录下，无须和app保持同一文件目录
-3.task任务中包含maven提交的task
-4.模块化开发过程中可以自由切换各个模块的集成方式，采用本地源码集成还是远程仓库代码集成，多分支情况下有比较好的效果
+#### 功能：
+* 1.无须在setting文件中声明project，会自动寻找
+* 2.子项目可以在任意目录下，无须和app保持同一文件目录
+* 3.task任务中包含maven提交的task
+* 4.模块化开发过程中可以自由切换各个模块的集成方式，采用本地源码集成还是远程仓库代码集成，多分支情况下有比较好的效果
          
